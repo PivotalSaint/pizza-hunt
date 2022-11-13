@@ -44,8 +44,12 @@ const pizzaController = {
       .catch((err) => res.status(400).json(err));
   },
 
+  //adding in runValidators after updating Pizza.js with the enum and required fields, this comes late
   updatePizza({ params, body }, res) {
-    Pizza.findOneAndUpdate({ _id: params.id }, body, { new: true })
+    Pizza.findOneAndUpdate({ _id: params.id }, body, {
+      new: true,
+      runValidators: true,
+    })
       .then((dbPizzaData) => {
         if (!dbPizzaData) {
           res.status(404).json({ message: "No pizza found with this id!" });
