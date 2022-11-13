@@ -55,5 +55,3 @@ const handlePizzaSubmit = event => {
 
 $pizzaForm.addEventListener('submit', handlePizzaSubmit);
 $addToppingBtn.addEventListener('click', handleAddTopping);
-
-//need to add a develop
